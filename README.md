@@ -20,8 +20,8 @@ DP Site uses an opinionated domain structure designed for security and modularit
 
 ```
 mysite.com                     # Your main website
-account.mysite.com             # User authentication interface for site admins
-monitor.mysite.com             # Admin monitoring dashboard for site admins
+account.mysite.com             # User authentication and management interface for all site users
+monitor.mysite.com             # Monitoring dashboard for site admins
 mailer.mysite.com              # Email management interface for site admins
 
 auth.api.mysite.com            # Authentication API
