@@ -12,7 +12,7 @@ DP Site is a collection of robust, open-source services and components that work
 - **Open Source**: All components are open-source and freely available
 - **Secure**: Opinionated security choices with first-party cookie architecture
 - **Modular**: Use only the services you need
-- **Language Agnostic**: Develop your main site in any language while leveraging DP Site services
+- **Technology Focused**: Built with Rust and JavaScript for reliability and modern development
 
 ## 🏗️ Architecture Overview
 
@@ -20,9 +20,9 @@ DP Site uses an opinionated domain structure designed for security and modularit
 
 ```
 mysite.com                     # Your main website
-account.mysite.com             # User authentication interface
-monitor.mysite.com             # Admin monitoring dashboard
-mailer.mysite.com              # Email management interface
+account.mysite.com             # User authentication interface for site admins
+monitor.mysite.com             # Admin monitoring dashboard for site admins
+mailer.mysite.com              # Email management interface for site admins
 
 auth.api.mysite.com            # Authentication API
 logs.api.mysite.com            # Logging API
@@ -146,6 +146,9 @@ To use DP Site, you need:
 
 ### Database
 - **SQLite**: Lightweight, reliable, and easy to deploy
+  - **Scalable**: Uses multiple database files, even within the same service (e.g., the Auth API has a separate SQLite database just for current sessions)
+  - **Easy to backup**: All databases support automatic backup to any S3-compatible storage
+  - **PII data encrypted**: While services don't use encrypted SQLite, specific column values are encrypted via application code (e.g., email addresses) to help with security and compliance
 
 ### API Layer
 - **GraphQL**: 
