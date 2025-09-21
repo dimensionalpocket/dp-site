@@ -1,10 +1,10 @@
-# DP Site
+# DPS - "Dimensional Pocket Site"
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 **A comprehensive ecosystem of deployable services for dynamic website development**
 
-DP Site is a collection of robust, open-source services and components that work together to provide essential functionality for dynamic websites. Instead of relying on third-party services, DP Site offers self-hosted solutions for user management, logging, metrics, email dispatching, and more.
+DPS is a collection of robust, open-source services and components that work together to provide essential functionality for dynamic websites. Instead of relying on third-party services, DPS offers self-hosted solutions that are common for dynamic websites, such as user management, logging, metrics, and email dispatching.
 
 ## 🎯 Project Goals
 
@@ -16,18 +16,24 @@ DP Site is a collection of robust, open-source services and components that work
 
 ## 🏗️ Architecture Overview
 
-DP Site uses an opinionated domain structure designed for security and modularity:
+DPS uses an opinionated domain structure designed for security and modularity:
 
 ```
 mysite.com                     # Your main website
-account.mysite.com             # User authentication and management interface for all site users
-monitor.mysite.com             # Monitoring dashboard for site admins
-mailer.mysite.com              # Email management interface for site admins
+console.mysite.com             # Your main website console, admin, etc
 
-auth.api.mysite.com            # Authentication API
-logs.api.mysite.com            # Logging API
-metrics.api.mysite.com         # Metrics API
-mailer.api.mysite.com          # Email API
+account.mysite.com             # (DpsAuthWeb) User authentication and management interface for all site users
+monitor.mysite.com             # (DpsMonitorWeb) Monitoring dashboard for site admins
+mailer.mysite.com              # (DpsMailerWeb) Email management interface for site admins
+
+auth.api.mysite.com            # (DpsAuthApi) Authentication API
+logs.api.mysite.com            # (DpsLogsApi) Logging API
+metrics.api.mysite.com         # (DpsMetricsApi) Metrics API
+mailer.api.mysite.com          # (DpsMailerApi) Email API
+
+# Create your APIs under the .api subdomain so that they share first-party cookies
+main.api.mysite.com            # Your main website API
+other.api.mysite.com           # Your other website API, etc
 ```
 
 ### Security Architecture
@@ -41,17 +47,17 @@ The domain structure enables secure cookie sharing using first-party cookies:
 
 ## 📋 Requirements
 
-To use DP Site, you need:
+To use DPS, you need:
 
 1. **A domain** (e.g., `mysite.com`)
-2. **API subdomain structure** (e.g., `*.api.mysite.com`)
+2. **API subdomain structure** (e.g., `*.api.mysite.com`) with all APIs hosted on their own subdomains 
 3. **Development stack**: Rust or JavaScript for your main site
 
 ## 🚀 Services
 
 ### Authentication Services
 
-#### DpSiteAuthApi
+#### DpsAuthApi
 - **Technology**: Rust + SQLite + GraphQL
 - **Domain**: `auth.api.mysite.com` (customizable prefix)
 - **Features**:
@@ -63,11 +69,11 @@ To use DP Site, you need:
   - OAuth integration
   - One-Time Password (OTP) support
 
-#### DpSiteAuthWeb
+#### DpsAuthWeb
 - **Technology**: Vue.js
 - **Domain**: `account.mysite.com` (customizable prefix)
 - **Features**:
-  - User sign-up and login interface
+  - User sign-up, login, and logout interfaces
   - User profile management
   - Admin user management
   - Password recovery flows
@@ -76,7 +82,7 @@ To use DP Site, you need:
 
 ### Monitoring Services
 
-#### DpSiteLogsApi
+#### DpsLogsApi
 - **Technology**: Rust + SQLite + GraphQL
 - **Domain**: `logs.api.mysite.com` (customizable prefix)
 - **Features**:
@@ -84,7 +90,7 @@ To use DP Site, you need:
   - Authentication via Auth layer
   - Searchable log data
 
-#### DpSiteMetricsApi
+#### DpsMetricsApi
 - **Technology**: Rust + SQLite + GraphQL
 - **Domain**: `metrics.api.mysite.com` (customizable prefix)
 - **Features**:
@@ -92,7 +98,7 @@ To use DP Site, you need:
   - Data parsing and analysis
   - Authentication via Auth layer
 
-#### DpSiteMonitorWeb
+#### DpsMonitorWeb
 - **Technology**: Vue.js
 - **Domain**: `monitor.mysite.com` (customizable prefix)
 - **Features**:
@@ -103,16 +109,17 @@ To use DP Site, you need:
 
 ### Email Services
 
-#### DpSiteMailerApi
+#### DpsMailerApi
 - **Technology**: Rust + SQLite + GraphQL
 - **Domain**: `mailer.api.mysite.com` (customizable prefix)
 - **Features**:
+  - Email management
   - Email payload ingestion
-  - Email storage and queuing
+  - Email message storage and queuing
   - Email dispatching
   - Authentication via Auth layer
 
-#### DpSiteMailerWeb
+#### DpsMailerWeb
 - **Technology**: Vue.js
 - **Domain**: `mailer.mysite.com` (customizable prefix)
 - **Features**:
@@ -122,26 +129,26 @@ To use DP Site, you need:
 
 ## 🧩 Components
 
-### DpSiteConfig
+### DpsConfig
 - **Languages**: Rust, JavaScript
 - **Usage**: Frontend and Backend
 - **Purpose**: Global configuration management for all services
 
-### DpSiteAuthSession
+### DpsAuthSession
 - **Languages**: Rust, JavaScript
 - **Usage**: Backend only
 - **Purpose**: Session token encoding/decoding with secret keys
 
-### DpSiteClient
+### DpsClient
 - **Languages**: Rust, JavaScript
 - **Usage**: Frontend and Backend
-- **Purpose**: Unified client for connecting to all DP Site APIs
+- **Purpose**: Unified client for connecting to all DPS APIs
 
 ## 🛠️ Technology Choices
 
 ### Languages
-- **Rust**: Chosen for reliability and performance in backend services
-- **JavaScript**: Popular choice for frontend development and Node.js backends
+- **Rust**: Chosen for reliability, performance, and low resource usage in backend services
+- **JavaScript**: Popular choice for frontend development and Node.js/Bun backends
 - **Future**: Additional languages like Ruby may be supported
 
 ### Database
@@ -172,7 +179,7 @@ This README serves as the "ultimate goal" and development guide. Components will
 1. Choose your development stack (Rust or JavaScript)
 2. Set up your domain structure
 3. Deploy the services you need
-4. Integrate DP Site components into your application
+4. Integrate DPS components into your application
 
 ### For Contributors
 1. Check the individual service repositories for development setup
@@ -181,20 +188,16 @@ This README serves as the "ultimate goal" and development guide. Components will
 
 ## 🗺️ Roadmap
 
-1. **Phase 1**: Core authentication services (DpSiteAuthApi, DpSiteAuthWeb)
-2. **Phase 2**: Essential components (DpSiteConfig, DpSiteClient)
-3. **Phase 3**: Monitoring services (DpSiteLogsApi, DpSiteMetricsApi, DpSiteMonitorWeb)
-4. **Phase 4**: Email services (DpSiteMailerApi, DpSiteMailerWeb)
+1. **Phase 1**: Core authentication services (DpsAuthApi, DpsAuthWeb)
+2. **Phase 2**: Essential components (DpsConfig, DpsClient)
+3. **Phase 3**: Monitoring services (DpsLogsApi, DpsMetricsApi, DpsMonitorWeb)
+4. **Phase 4**: Email services (DpsMailerApi, DpsMailerWeb)
 5. **Phase 5**: Additional language support and ecosystem expansion
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 🤝 Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request. As this ecosystem grows, contribution guidelines will be established for each component.
 
----
+## 📄 License
 
-**DP Site** - Building robust, self-hosted web services for the modern web.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
