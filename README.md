@@ -193,10 +193,6 @@ This README serves as the "ultimate goal" and development guide. Components will
 4. **Phase 4**: Email services (DpsMailerApi, DpsMailerWeb)
 5. **Phase 5**: Additional language support and ecosystem expansion
 
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request. As this ecosystem grows, contribution guidelines will be established for each component.
-
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
