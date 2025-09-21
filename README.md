@@ -63,7 +63,6 @@ To use DPS, you need:
 - **Features**:
   - User sign-up and log-in
   - Password recovery
-  - Email management
   - Data redaction (GDPR compliance)
   - Session management and revocation
   - OAuth integration
