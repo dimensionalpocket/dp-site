@@ -4,7 +4,7 @@
 
 **A comprehensive ecosystem of deployable services for dynamic website development**
 
-DPS is a collection of robust, open-source services and components that work together to provide essential functionality for dynamic websites. Instead of relying on third-party services, DPS offers self-hosted solutions that are common for dynamic websites, such as user management, logging, metrics, and email dispatching.
+"DPS" is a collection of robust, open-source services and components that work together to provide essential functionality for dynamic websites. Instead of relying on third-party services, DPS offers self-hosted solutions that are common for dynamic websites, such as user management, logging, metrics, and email dispatching.
 
 ## 🎯 Project Goals
 
@@ -57,7 +57,7 @@ To use DPS, you need:
 
 ### Authentication Services
 
-#### DpsAuthApi
+#### [DpsAuthApi](https://github.com/dimensionalpocket/dps-auth-api)
 - **Technology**: Rust + SQLite + GraphQL
 - **Domain**: `auth.api.mysite.com` (customizable prefix)
 - **Features**:
