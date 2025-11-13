@@ -129,7 +129,7 @@ To use DPS, you need:
 ## 🧩 Components
 
 ### DpsConfig
-- **Languages**: Rust, Bun
+- **Languages**: [Rust](https://github.com/dimensionalpocket/dps-config-rs), Bun
 - **Usage**: Frontend and Backend
 - **Purpose**: Global configuration management for all services
 
