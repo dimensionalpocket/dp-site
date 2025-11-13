@@ -69,7 +69,7 @@ To use DPS, you need:
   - One-Time Password (OTP) support
 
 #### DpsAuthWeb
-- **Technology**: Vue.js
+- **Technology**: Bun + Vue.js
 - **Domain**: `account.mysite.com` (customizable prefix)
 - **Features**:
   - User sign-up, login, and logout interfaces
@@ -98,7 +98,7 @@ To use DPS, you need:
   - Authentication via Auth layer
 
 #### DpsMonitorWeb
-- **Technology**: Vue.js
+- **Technology**: Bun + Vue.js
 - **Domain**: `monitor.mysite.com` (customizable prefix)
 - **Features**:
   - Log search and filtering
@@ -119,7 +119,7 @@ To use DPS, you need:
   - Authentication via Auth layer
 
 #### DpsMailerWeb
-- **Technology**: Vue.js
+- **Technology**: Bun + Vue.js
 - **Domain**: `mailer.mysite.com` (customizable prefix)
 - **Features**:
   - Email delivery monitoring
@@ -129,17 +129,17 @@ To use DPS, you need:
 ## 🧩 Components
 
 ### DpsConfig
-- **Languages**: Rust, JavaScript
+- **Languages**: Rust, Bun
 - **Usage**: Frontend and Backend
 - **Purpose**: Global configuration management for all services
 
 ### DpsAuthSession
-- **Languages**: Rust, JavaScript
+- **Languages**: [Rust](https://github.com/dimensionalpocket/dps-auth-session-rs), Bun
 - **Usage**: Backend only
 - **Purpose**: Session token encoding/decoding with secret keys
 
-### DpsClient
-- **Languages**: Rust, JavaScript
+### DpsClient (Rust, Bun)
+- **Languages**: Rust, Bun
 - **Usage**: Frontend and Backend
 - **Purpose**: Unified client for connecting to all DPS APIs
 
@@ -187,8 +187,8 @@ This README serves as the "ultimate goal" and development guide. Components will
 
 ## 🗺️ Roadmap
 
-1. **Phase 1**: Core authentication services (DpsAuthApi, DpsAuthWeb)
-2. **Phase 2**: Essential components (DpsConfig, DpsClient)
+1. **Phase 1**: Essential components (DpsConfig)
+2. **Phase 2**: Core authentication services and components (DpsAuthSession, DpsAuthApi, DpsClient, DpsAuthWeb)
 3. **Phase 3**: Monitoring services (DpsLogsApi, DpsMetricsApi, DpsMonitorWeb)
 4. **Phase 4**: Email services (DpsMailerApi, DpsMailerWeb)
 5. **Phase 5**: Additional language support and ecosystem expansion
