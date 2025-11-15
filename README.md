@@ -6,6 +6,23 @@
 
 "DPS" is a collection of robust, open-source services and components that work together to provide essential functionality for dynamic websites. Instead of relying on third-party services, DPS offers self-hosted solutions that are common for dynamic websites, such as user management, logging, metrics, and email dispatching.
 
+## 🏁 Current Progress
+
+> Legend: ⚫ Not started — 🟡 In progress — 🟢 Initial release — 🟣 1.0
+
+- 🟢 [DpsConfig](https://github.com/dimensionalpocket/dps-config-rs) (Rust)
+- 🟢 [DpsAuthSession](https://github.com/dimensionalpocket/dps-auth-session-rs) (Rust)
+- 🟡 [DpsAuthApi](https://github.com/dimensionalpocket/dps-auth-api) (Rust)
+- ⚫ DpsConfig (Bun)
+- ⚫ DpsClient (Bun)
+- ⚫ DpsAuthWeb (Bun/Vue)
+- ⚫ DpsClient (Rust)
+- ⚫ DpsLogsApi (Rust)
+- ⚫ DpsMetricsApi (Rust)
+- ⚫ DpsMonitorWeb (Bun/Vue)
+- ⚫ DpsMailerApi (Rust)
+- ⚫ DpsMailerWeb (Bun/Vue)
+
 ## 🎯 Project Goals
 
 - **Self-hosted**: Run your own services without depending on external providers
